@@ -1,7 +1,7 @@
 class User < ApplicationRecord
-  attr_accessor :quantity
   has_secure_password
-  has_and_belongs_to_many :currencies #,through: :users_currency
+  has_many :users_currencies
+  has_many :currencies, through: :users_currencies
 
 
   validates :username, presence: true, uniqueness: true

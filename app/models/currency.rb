@@ -1,7 +1,8 @@
 class Currency < ApplicationRecord
-  has_and_belongs_to_many :users 
-  #, through: :users_currencies
+  has_many :users_currencies 
+  has_many :users, through: :users_currencies
 
+  
 
   def calculate_value(amount)
     (current_price.to_f * amount.to_f).round(4)

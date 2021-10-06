@@ -1,4 +1,6 @@
 class CurrenciesController < AuthenticationController
+before_action :authorize_request, only: :add_currencies_to_users
+
   def currency
     @currency = Currency.find(params[:id])
   end
@@ -18,9 +20,8 @@ class CurrenciesController < AuthenticationController
   #PUT /currency/1
   def update
     @currency = Currency.find(params[:id])
-      if @currency.update(currency_params) {
+      if @currency.update(currency_params)
       render json: @currency, status: :updated
-      }
     else
       render json: @currency.errors, status: :unprocessable_entity
     end
@@ -51,21 +52,23 @@ class CurrenciesController < AuthenticationController
   end
 
   #Method to add currencies to portfolio
-# def add_currencies_to_users
-#   @currency = Currency.find(params[:currency_id])
-#   @portfolio = UserCurrency.find(params[:id])
-#   if @portfolio.include?(@currency) == false
-#   @portfolio.currencies << @currency
-#   render json: @portfolio, include: :currencies
-#   end
-# end
+def add_currencies_to_users
+  @currency = Currency.find(params[:id])
+  if @current_user.currencies.include?(@currency)
+    @portfolio = @current_user.users_currencies.find_by(currency_id:params[:id])
+  @portfolio.update(quantity: @portfolio.quantity + currency_params[:quantity])
+  else 
+    @current_user.users_currencies.create(quantity: currency_params[:quantity], currency:@currency)
+  end
+  render json: @current_user.currencies, include: :users_currencies
+end
+
+
   private
 
-  def currency
-    @currency ||= Currency.find(params[:id])
-  end
+
 
   def currency_params
-    params.require(:currency).permit(:description)
+    params.require(:currency).permit(:description, :quantity)
   end
 end
