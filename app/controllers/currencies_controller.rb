@@ -50,6 +50,15 @@ class CurrenciesController < AuthenticationController
     }
   end
 
+  #Method to add currencies to portfolio
+# def add_currencies_to_users
+#   @currency = Currency.find(params[:currency_id])
+#   @portfolio = UserCurrency.find(params[:id])
+#   if @portfolio.include?(@currency) == false
+#   @portfolio.currencies << @currency
+#   render json: @portfolio, include: :currencies
+#   end
+# end
   private
 
   def currency

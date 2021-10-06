@@ -1,5 +1,6 @@
 class Currency < ApplicationRecord
-  has_many :users, through: :users_currencies
+  has_and_belongs_to_many :users 
+  #, through: :users_currencies
 
 
   def calculate_value(amount)

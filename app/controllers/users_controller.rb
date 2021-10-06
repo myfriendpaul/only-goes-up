@@ -11,8 +11,12 @@ class UsersController < ApplicationController
 
   # GET /users/1
   def show
-    render json: @user
+    render json: @user, include: [:users_currency => { include: :currency }], status: :ok
+
   end
+
+  #GET /users/1/currencies
+  #POST /users/1/currencies
 
   # POST /users
   def create

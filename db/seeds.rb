@@ -6,6 +6,9 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+@admin = User.create!(username: 'Chickadee', email: 'paul@email.com', password: '12345678')
+
+
 currencies = Currency.create([
   { name: 'Bitcoin', max_supply: 21000000, currency_symbol: 'BTC', slug: 'bitcoin' },
   { name: 'Ethereum', max_supply: 96096842, currency_symbol: 'ETH', slug: 'ethereum' },
@@ -1324,4 +1327,10 @@ currencies = Currency.create([
   { name: 'Axiom', max_supply: 0, currency_symbol: 'AXIOM', slug: 'axiom' },
   { name: 'PokeCoin', max_supply: 0, currency_symbol: 'POKE', slug: 'pokecoin' },
   { name: 'GameLeagueCoin', max_supply: 0, currency_symbol: 'GML', slug: 'gameleaguecoin' }
-])
+  ])
+
+
+  
+@paulcoin = Currency.create!(name: 'PaulCoin', max_supply: 1, currency_symbol: 'PUG', slug: 'paulcoin')
+
+@adminportfolio = UsersCurrency.create!(user: @admin, currency: @paulcoin,  quantity: 15)
