@@ -18,7 +18,7 @@ export default function Layout(props) {
         <hr />
         {props.currentUser && (
           <div>
-            <Link>Search Coins</Link>
+            <Link>Search</Link>
             <Link>Portfolio</Link>
           </div>
         )}

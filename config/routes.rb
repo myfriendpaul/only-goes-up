@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   get '/auth/verify', to: 'authentication#verify'
   resources  :users 
   resources :currencies do
-  resources :users_currency
+    resources :users_currency
     
   end
   root 'currencies#index'

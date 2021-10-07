@@ -15,9 +15,6 @@ class UsersController < ApplicationController
 
   end
 
-  #GET /users/1/currencies
-  #POST /users/1/currencies
-
   # POST /users
   def create
     @user = User.new(user_params)
