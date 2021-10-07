@@ -1,28 +1,26 @@
-// import { useState } from "react";
+import { useState } from "react";
+// import { searchCurrencies } from "../services/currencies";
+
 export default function Search(props) {
-  // const [search, setSearch] = useState("");
-  // const handleChange = (e) => {
-  //   debugger;
-  // };
+  const handleSearch = (e) => {
+    props.setSearch(e.target.value);
+  };
   return (
     <div>
       <h1>Search Cryptocurrencies</h1>
-      <form>
-        <div className="form-group">
-          <label>Search for a currency:</label>
-          <input
-            onChange={(e) => {
-              props.handleChange(e);
-            }}
-            autoComplete="off"
-            type="text"
-            name="name"
-            placeholder="Ex: Bitcoin, Ethereum, Litecoin..."
-            value={props.name}
-            className="search-field"
-          ></input>
-        </div>
-      </form>
+
+      <div className="form-group">
+        <label>Search for a currency:</label>
+        <input
+          onChange={handleSearch}
+          autoComplete="off"
+          type="text"
+          name="name"
+          placeholder="Ex: Bitcoin, Ethereum, Litecoin..."
+          value={props.search}
+          className="search-field"
+        ></input>
+      </div>
     </div>
   );
 }
