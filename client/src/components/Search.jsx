@@ -4,13 +4,16 @@ export default function Search(props) {
       <h1>Search Cryptocurrencies</h1>
       <form>
         <div className="form-group">
-          <lable>Search for a currency:</lable>
+          <label>Search for a currency:</label>
           <input
-            autocomplete="off"
+            onChange={(e) => {
+              props.handleChange(e);
+            }}
+            autoComplete="off"
             type="text"
             name="name"
             placeholder="Ex: Bitcoin, Ethereum, Litecoin..."
-            value=""
+            value={props.name}
             className="search-field"
           ></input>
         </div>
