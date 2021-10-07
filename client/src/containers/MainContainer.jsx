@@ -7,13 +7,13 @@ import { getAllCurrencies } from "../services/currencies";
 export default function MainContainer() {
   const [currencies, setCurrencies] = useState([]);
   const [search, setSearch] = useState("");
-  // const [currencyData, setCurrencyData] = useState({
-  //   name: "",
-  //   portfolio: [],
-  //   search_results: [],
-  //   active_currency: null,
-  //   quantity: "",
-  // });
+  const [currencyData, setCurrencyData] = useState({
+    name: "",
+    portfolio: [],
+    search_results: [],
+    active_currency: null,
+    quantity: "",
+  });
 
   useEffect(() => {
     const fetchCurrencies = async () => {
@@ -25,7 +25,11 @@ export default function MainContainer() {
   }, []);
 
   const handleChange = (e) => {
-    debugger;
+    const { name, value } = e.target;
+    setSearch((prevState) => ({
+      ...prevState,
+      [name]: value,
+    }));
   };
 
   return (

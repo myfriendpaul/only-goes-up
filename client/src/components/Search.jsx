@@ -1,4 +1,9 @@
+// import { useState } from "react";
 export default function Search(props) {
+  // const [search, setSearch] = useState("");
+  // const handleChange = (e) => {
+  //   debugger;
+  // };
   return (
     <div>
       <h1>Search Cryptocurrencies</h1>
