@@ -22,9 +22,9 @@ before_action :authorize_request, only: :add_currencies_to_users
     @currency = Currency.find(params[:id])
       if @currency.update(currency_params)
       render json: @currency, status: :updated
-    else
+      else
       render json: @currency.errors, status: :unprocessable_entity
-    end
+      end
   end
 
   #DELETE /currency/1
