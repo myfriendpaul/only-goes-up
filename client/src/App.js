@@ -54,9 +54,9 @@ function App() {
           <Route path="/register">
             <Register handleRegister={handleRegister} />
           </Route>
-          {/* <Route path="/search">
-          <Search />
-        </Route> */}
+          <Route path="/search">
+            <Search />
+          </Route>
           <Route exact path="/">
             <MainContainer />
           </Route>

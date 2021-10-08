@@ -18,7 +18,7 @@ export default function Search(props) {
   }, []);
 
   const handleSearch = (e) => {
-    props.setSearch(e.target.value);
+    setSearch(e.target.value);
   };
 
   const handleSelect = (e, currencyId) => {

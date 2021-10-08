@@ -51,31 +51,25 @@ export default function MainContainer() {
     });
   };
 
-  const handleAmount = (e) => {
-    setAmount({
-      [e.target.name]: e.target.value,
-    });
-  };
-
   return (
     <div>
-      <Switch>
-        <Route path="/search">
-          <Search
-            coin={coin}
-            search={search}
-            setSearch={setSearch}
-            // handleSelect={handleSelect}
-            // searchFilterFn={searchFilterFn}
-          />
-        </Route>
-        <Calculate
-          handleAmount={handleAmount}
-          handleSubmit={handleSubmit}
+      {/* <Switch> */}
+      <Route path="/search">
+        <Search
           coin={coin}
-          amount={amount}
+          search={search}
+          setSearch={setSearch}
+          // handleSelect={handleSelect}
+          // searchFilterFn={searchFilterFn}
         />
-      </Switch>
+      </Route>
+      <Calculate
+        handleSubmit={handleSubmit}
+        coin={coin}
+        amount={amount}
+        setAmount={setAmount}
+      />
+      {/* </Switch> */}
     </div>
   );
 }
