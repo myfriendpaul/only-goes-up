@@ -75,7 +75,7 @@ export default function MainContainer() {
 }
 
 {
-  /* <Route to="/coindetail">
+  /* <Route to="/coindetail/:id">
           <CoinDetail />
         </Route> */
 }
