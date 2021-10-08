@@ -5,7 +5,14 @@ export const getAllCurrencies = async () => {
   return resp.data;
 };
 
-// export const searchCurrencies = async () => {
-//   const resp = await api.post(`/search`);
-//   return resp.data;
-// };
+export const getUserCurrencies = async () => {
+  const resp = await api.get("/user-portfolio");
+  return resp.data;
+};
+
+export const addCurrencyToUser = async (id, currencyData) => {
+  const resp = await api.put(`/currencies/${id}/add`, {
+    currency: currencyData,
+  });
+  return resp.data;
+};
