@@ -42,6 +42,7 @@ export default function Search(props) {
                   id={currency.id}
                   name={currency.name}
                   symbol={currency.currency_symbol}
+                  logo_url={currency.logo_url}
                   max_supply={currency.max_supply}
                   // imgURL={currency.imgURL}
                   // price={currency.price}

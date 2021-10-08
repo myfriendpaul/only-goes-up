@@ -1,12 +1,13 @@
 import { useState, useEffect } from "react";
-import { Route, Switch } from "react-router-dom";
+import { Route, Switch, useHistory } from "react-router-dom";
 import Search from "../components/Search";
 import CoinDetail from "../screens/CoinDetail";
 import {
   getAllCurrencies,
   getUserCurrencies,
   addCurrencyToUser,
-  getOneCurrency,
+  // getOneCurrency,
+  deleteCurrency,
 } from "../services/currencies";
 import Calculate from "../components/Calculate";
 import Portfolio from "../screens/Portfolio";
@@ -15,7 +16,7 @@ export default function MainContainer(props) {
   const [currencies, setCurrencies] = useState([]);
   const [search, setSearch] = useState("");
   const [userCurrencies, setUserCurrencies] = useState([]);
-
+  const history = useHistory();
   useEffect(() => {
     const fetchCurrencies = async () => {
       const currencyList = await getAllCurrencies();
@@ -36,6 +37,7 @@ export default function MainContainer(props) {
   const handlePortfolioCreate = async (id, currencyData) => {
     const portfolioData = await addCurrencyToUser(id, currencyData);
     setUserCurrencies(portfolioData);
+    // history.push("/");
   };
 
   const handleSearch = (e) => {
@@ -46,6 +48,11 @@ export default function MainContainer(props) {
       return currency.name.toUpperCase().includes(search.toUpperCase());
     }
     return index < 10;
+  };
+
+  const handleCurrencyDelete = async (id) => {
+    await deleteCurrency(id);
+    setCurrencies((prevState) => prevState.filter((coin) => coin.id !== id));
   };
 
   return (
@@ -68,7 +75,10 @@ export default function MainContainer(props) {
         />
       </Route>
       <Route path="/users/:id">
-        <Portfolio />
+        <Portfolio
+          currentUser={props.currentUser}
+          handleCurrencyDelete={handleCurrencyDelete}
+        />
       </Route>
       {/* </Switch> */}
     </div>

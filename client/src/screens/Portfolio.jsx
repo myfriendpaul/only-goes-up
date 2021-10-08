@@ -1,19 +1,20 @@
 import { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
-import { getOneUser } from "../services/currencies";
+import { useParams, Link, useHistory } from "react-router-dom";
+import { getOneUser, calculateCurrency } from "../services/currencies";
 import "./Portfolio.css";
 
 export default function Portfolio(props) {
   const [user, setUser] = useState(null);
   const { id } = useParams();
+  const history = useHistory();
 
   useEffect(() => {
     const fetchUser = async () => {
       const userData = await getOneUser(id);
       setUser(userData);
     };
-    fetchUser();
-  }, [id]);
+    if (props.currentUser) fetchUser();
+  }, [id, props.currentUser]);
 
   return (
     <div>
@@ -29,9 +30,18 @@ export default function Portfolio(props) {
             </span>
             <span className="quantity">
               <h3>{coin.quantity}</h3>
-              <button className="edit-btn">Edit</button>
+              <Link to={`/coindetail/${coin.currency_id}`}>
+                <button className="edit-btn">Edit</button>
+              </Link>
             </span>
-            <button className="delete-btn">Delete</button>
+            <button
+              className="delete-btn"
+              onClick={() => {
+                props.handleCurrencyDelete(coin.currency_id);
+              }}
+            >
+              Delete
+            </button>
           </div>
         );
       })}

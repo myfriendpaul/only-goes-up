@@ -17,6 +17,16 @@ export const addCurrencyToUser = async (id, currencyData) => {
   return resp.data;
 };
 
+export const deleteCurrency = async (id) => {
+  const resp = await api.delete(`/currencies/${id}`);
+  return resp;
+};
+
+export const calculateCurrency = async (id, currencyAmount) => {
+  const resp = await api.post(`/calculate/${id}`, { currency: currencyAmount });
+  return resp;
+};
+
 export const getOneCurrency = async (id) => {
   const resp = await api.get(`/currencies/${id}`);
   return resp.data;

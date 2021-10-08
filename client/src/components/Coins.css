@@ -3,10 +3,10 @@
   flex-direction: column;
 } */
 
-.currency-list-item {
-  /* justify-content: space-between; */
-  /* display: flex;
-  justify-content: space-evenly; */
+.currency-list {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   box-shadow: 0 7px 14px rgba(50, 50, 93, 0.1), 0 3px 6px rgba(0, 0, 0, 0.08);
   padding: 20px;
   border-radius: 8px;
@@ -21,15 +21,15 @@
   background-color: #263030;
 }
 
-/* .currency-list > span {
+.currency-list > span {
   flex: 1 0 0;
 }
 
 .currency-list > span:nth-child(2) {
   text-align: center;
-} */
+}
 
-.currency-list-item:hover {
+.currency-list:hover {
   cursor: pointer;
   margin: 10px 15px 10px 0;
 }

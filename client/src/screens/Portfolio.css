@@ -23,6 +23,11 @@
   text-align: center;
 }
 
+.coin-list:hover {
+  cursor: pointer;
+  margin: 10px 15px 10px 0;
+}
+
 .quantity {
   display: flex;
 }
