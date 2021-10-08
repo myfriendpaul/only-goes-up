@@ -54,7 +54,7 @@ function App() {
           <Route path="/register">
             <Register handleRegister={handleRegister} />
           </Route>
-          <Route path="/">
+          <Route exact path="/">
             <MainContainer />
           </Route>
         </Switch>

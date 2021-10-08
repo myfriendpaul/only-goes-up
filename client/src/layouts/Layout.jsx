@@ -18,8 +18,8 @@ export default function Layout(props) {
         <hr />
         {props.currentUser && (
           <div>
-            <Link>Search</Link>
-            <Link>Portfolio</Link>
+            <Link to="/search">Search</Link>
+            <Link to="/portfolio">Portfolio</Link>
           </div>
         )}
       </header>
