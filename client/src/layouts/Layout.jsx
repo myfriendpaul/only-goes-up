@@ -17,11 +17,10 @@ export default function Layout(props) {
           </div>
         )}
         <Link to="/">Home</Link>
-        <hr />
         {props.currentUser && (
           <div>
             <Link to="/search">Search</Link>
-            <Link to="/portfolio">Portfolio</Link>
+            <Link to={`/users/${props.currentUser.id}`}>Portfolio</Link>
           </div>
         )}
       </header>

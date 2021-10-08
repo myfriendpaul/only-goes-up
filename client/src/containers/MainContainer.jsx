@@ -6,11 +6,12 @@ import {
   getAllCurrencies,
   getUserCurrencies,
   addCurrencyToUser,
+  getOneCurrency,
 } from "../services/currencies";
 import Calculate from "../components/Calculate";
 import Portfolio from "../screens/Portfolio";
 
-export default function MainContainer() {
+export default function MainContainer(props) {
   const [currencies, setCurrencies] = useState([]);
   const [search, setSearch] = useState("");
   const [userCurrencies, setUserCurrencies] = useState([]);
@@ -66,8 +67,8 @@ export default function MainContainer() {
           handlePortfolioCreate={handlePortfolioCreate}
         />
       </Route>
-      <Route>
-        <Portfolio userCurrencies={userCurrencies} />
+      <Route path="/users/:id">
+        <Portfolio />
       </Route>
       {/* </Switch> */}
     </div>

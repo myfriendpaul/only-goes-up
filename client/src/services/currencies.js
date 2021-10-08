@@ -16,3 +16,13 @@ export const addCurrencyToUser = async (id, currencyData) => {
   });
   return resp.data;
 };
+
+export const getOneCurrency = async (id) => {
+  const resp = await api.get(`/currencies/${id}`);
+  return resp.data;
+};
+
+export const getOneUser = async (id) => {
+  const resp = await api.get(`/users/${id}`);
+  return resp.data;
+};

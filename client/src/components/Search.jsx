@@ -1,23 +1,7 @@
-import { useState, useEffect } from "react";
-import { getAllCurrencies } from "../services/currencies";
 import Coins from "./Coins";
 import { Link } from "react-router-dom";
-// import { searchCurrencies } from "../services/currencies";
 
 export default function Search(props) {
-  // const [currencies, setCurrencies] = useState([]);
-  // const [coin, setCoin] = useState(null);
-  // const [search, setSearch] = useState([]);
-
-  // useEffect(() => {
-  //   const fetchCurrencies = async () => {
-  //     const currencyList = await getAllCurrencies();
-  //     setCurrencies(currencyList);
-  //     console.log(currencyList);
-  //   };
-  //   fetchCurrencies();
-  // }, []);
-
   const handleSearch = (e) => {
     props.setSearch(e.target.value);
   };
@@ -50,12 +34,15 @@ export default function Search(props) {
           .filter(props.searchFilterFn)
           .map((currency, index) => {
             return (
-              <Link to={`/coindetail/${currency.id}`}>
+              <Link
+                style={{ textDecoration: "none" }}
+                to={`/coindetail/${currency.id}`}
+              >
                 <Coins
-                  // handleSelect={handleSelect}
                   id={currency.id}
                   name={currency.name}
                   symbol={currency.currency_symbol}
+                  max_supply={currency.max_supply}
                   // imgURL={currency.imgURL}
                   // price={currency.price}
                   key={currency.id}

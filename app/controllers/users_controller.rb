@@ -5,14 +5,13 @@ class UsersController < ApplicationController
   # GET /users
   def index
     @users = User.all
-
     render json: @users
   end
 
   # GET /users/1
   def show
-    render json: @user, include: [:users_currency => { include: :currency }], status: :ok
-
+    # render json: @user, include: :users_currencies
+    render json: @user, include: [:users_currencies => { include: :currency }], status: :ok
   end
 
   # POST /users
