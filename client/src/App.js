@@ -6,7 +6,7 @@ import Layout from "./layouts/Layout";
 import Login from "./screens/Login";
 import Register from "./screens/Register";
 import MainContainer from "./containers/MainContainer";
-
+import Search from "./components/Search";
 import {
   loginUser,
   registerUser,
@@ -54,6 +54,9 @@ function App() {
           <Route path="/register">
             <Register handleRegister={handleRegister} />
           </Route>
+          {/* <Route path="/search">
+          <Search />
+        </Route> */}
           <Route exact path="/">
             <MainContainer />
           </Route>
