@@ -1,43 +1,109 @@
 import { useState, useEffect } from "react";
-import { Route } from "react-router-dom";
+import { Route, Link, Switch } from "react-router-dom";
 import Search from "../components/Search";
-// import Calculate from "../components/Calculate";
+import Coins from "../components/Coins";
+import CoinDetail from "../screens/CoinDetail";
 import { getAllCurrencies } from "../services/currencies";
+import axios from "axios";
+// import api from "../services/api";
+import Calculate from "../components/Calculate";
 
 export default function MainContainer() {
   const [currencies, setCurrencies] = useState([]);
-  const [search, setSearch] = useState("");
-  const [currencyData, setCurrencyData] = useState({
-    name: "",
-    portfolio: [],
-    search_results: [],
-    active_currency: null,
-    quantity: "",
-  });
+  const [search, setSearch] = useState([]);
+  const [coin, setCoin] = useState(null);
+  const [amount, setAmount] = useState("");
 
-  useEffect(() => {
-    const fetchCurrencies = async () => {
-      const currencyList = await getAllCurrencies;
-      setCurrencies(currencyList);
-      console.log(setCurrencies);
-    };
-    fetchCurrencies();
-  }, []);
+  // useEffect(() => {
+  //   const fetchCurrencies = async () => {
+  //     const currencyList = await getAllCurrencies();
+  //     setCurrencies(currencyList);
+  //     console.log(currencyList);
+  //   };
+  //   fetchCurrencies();
+  // }, []);
 
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setSearch((prevState) => ({
-      ...prevState,
-      [name]: value,
-    }));
+  // const searchFilterFn = (currency, index) => {
+  //   if (search.length) {
+  //     return currency.name.toUpperCase().includes(search.toUpperCase());
+  //   }
+  //   return index < 10;
+  // };
+
+  // const handleSelect = (e, currencyId) => {
+  //   e.preventDefault();
+  //   console.log(parseInt(currencies.id));
+  //   // console.log(currencies.id);
+  //   // console.log(search);
+  //   const coin = currencies.find((item) => item.id === currencyId);
+
+  //   setCoin(coin);
+  //   console.log(currencyId);
+  //   console.log(coin);
+  // };
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    let currency = coin;
+    let amount = amount;
+    axios.post("http://localhost:3000/calculate", {
+      id: currency.id,
+      amount: amount,
+    });
+  };
+
+  const handleAmount = (e) => {
+    setAmount({
+      [e.target.name]: e.target.value,
+    });
   };
 
   return (
     <div>
-      <Route to="/search">
-        <Search handleChange={handleChange} />
-        {/* <Calculate /> */}
-      </Route>
+      <Switch>
+        <Route path="/search">
+          <Search
+            coin={coin}
+            search={search}
+            setSearch={setSearch}
+            // handleSelect={handleSelect}
+            // searchFilterFn={searchFilterFn}
+          />
+        </Route>
+        <Calculate
+          handleAmount={handleAmount}
+          handleSubmit={handleSubmit}
+          coin={coin}
+          amount={amount}
+        />
+      </Switch>
     </div>
   );
+}
+
+{
+  /* <Route to="/coindetail">
+          <CoinDetail />
+        </Route> */
+}
+{
+  /* </Switch> */
+}
+{
+  /* <div className="currencies">
+        {currencies.filter(searchFilterFn).map((currency, index) => {
+          return (
+            <Link to="/coindetail">
+            <Coins
+              handleSelect={handleSelect}
+              id={currency.id}
+              name={currency.name}
+              symbol={currency.currency_symbol}
+              imgURL={currency.imgURL}
+              price={currency.price}
+              key={currency.id}
+            />
+            // </Link>
+          );
+        })}
+      </div> */
 }

@@ -36,7 +36,7 @@ before_action :authorize_request, only: :add_currencies_to_users
 
   #Search for currencies
   def search
-    @currencies = Currency.where('LOWER(name) LIKE ?', "%#{params[:search].downcase}%")
+    @currencies = Currency.where('LOWER(name) LIKE ?', "%#{params[:search]}%")
     render json: { currencies: @currencies }
   end
 

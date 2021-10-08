@@ -8,6 +8,6 @@ Rails.application.routes.draw do
   end
   root 'currencies#index'
   post 'search', to: 'currencies#search'
-  post 'calculate', to: 'currencies#calculate'
+  post '/calculate', to: 'currencies#calculate'
   put '/currencies/:id/add', to: 'currencies#add_currencies_to_users'
 end

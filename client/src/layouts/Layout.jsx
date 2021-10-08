@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, Switch } from "react-router-dom";
 
 export default function Layout(props) {
   return (
@@ -11,15 +11,17 @@ export default function Layout(props) {
             <button onClick={props.handleLogout}>Logout</button>
           </div>
         ) : (
-          <Link to="/register">Register</Link>
+          <div>
+            <Link to="/register">Register</Link>
+            <Link to="/login">Login</Link>
+          </div>
         )}
         <Link to="/">Home</Link>
-        <Link to="/login">Login</Link>
         <hr />
         {props.currentUser && (
           <div>
-            <Link>Search</Link>
-            <Link>Portfolio</Link>
+            <Link to="/search">Search</Link>
+            <Link to="/portfolio">Portfolio</Link>
           </div>
         )}
       </header>
