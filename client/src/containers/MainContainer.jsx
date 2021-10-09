@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { Route, Switch, useHistory } from "react-router-dom";
 import Search from "../components/Search";
-import CoinDetail from "../screens/CoinDetail";
+import Home from "../screens/Home";
 import {
   getAllCurrencies,
   getUserCurrencies,
@@ -71,32 +71,35 @@ export default function MainContainer(props) {
 
   return (
     <div>
-      {/* <Switch> */}
-      <Route path="/search">
-        <Search
-          coinData={coinData}
-          currencies={currencies}
-          search={search}
-          setSearch={setSearch}
-          handleSearch={handleSearch}
-          searchFilterFn={searchFilterFn}
-        />
-      </Route>
-      <Route path="/coindetail/:id">
-        {/* <CoinDetail /> */}
-        <Calculate
-          userCurrencies={userCurrencies}
-          handlePortfolioCreate={handlePortfolioCreate}
-        />
-      </Route>
-      <Route path="/users/:id">
-        <Portfolio
-          coinData={coinData}
-          currentUser={props.currentUser}
-          handleCurrencyDelete={handleCurrencyDelete}
-        />
-      </Route>
-      {/* </Switch> */}
+      <Switch>
+        <Route path="/search">
+          <Search
+            coinData={coinData}
+            currencies={currencies}
+            search={search}
+            setSearch={setSearch}
+            handleSearch={handleSearch}
+            searchFilterFn={searchFilterFn}
+          />
+        </Route>
+        <Route path="/coindetail/:id">
+          {/* <CoinDetail /> */}
+          <Calculate
+            userCurrencies={userCurrencies}
+            handlePortfolioCreate={handlePortfolioCreate}
+          />
+        </Route>
+        <Route path="/users/:id">
+          <Portfolio
+            coinData={coinData}
+            currentUser={props.currentUser}
+            handleCurrencyDelete={handleCurrencyDelete}
+          />
+        </Route>
+        <Route path="/">
+          <Home />
+        </Route>
+      </Switch>
     </div>
   );
 }

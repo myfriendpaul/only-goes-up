@@ -28,7 +28,6 @@ export default function Portfolio(props) {
     return props.coinData.map((andy) => {
       if (andy.currency === symbol) {
         return <h3>{andy.price}</h3>;
-        console.log(andy.currency);
       }
     });
   };
@@ -36,6 +35,7 @@ export default function Portfolio(props) {
   return (
     <div>
       <h1>{user?.username}</h1>
+
       {user?.users_currencies.map((coin) => {
         return (
           <div className="coin-list">

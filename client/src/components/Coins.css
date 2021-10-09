@@ -1,20 +1,19 @@
-/* .currency-list {
-  display: flex;
-  flex-direction: column;
-} */
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;500;600;700&display=swap");
 
 .currency-list {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  box-shadow: 0 7px 14px rgba(50, 50, 93, 0.1), 0 3px 6px rgba(0, 0, 0, 0.08);
+  box-shadow: 20px 20px 14px rgba(38, 48, 48, 0.5);
   padding: 20px;
   border-radius: 8px;
   margin: 5px;
   border: 1px solid rgba(0, 0, 0, 0.25);
   list-style-type: none;
-  font-size: 18px;
-  margin: 5px 15px 0 0;
+  font-size: 1.75em;
+  font-family: Montserrat;
+  font-weight: 500;
+  margin: 1.2vh 10vw;
   transition: ease-in-out 0.3s;
   text-decoration: none;
   color: #db995d;
@@ -31,7 +30,7 @@
 
 .currency-list:hover {
   cursor: pointer;
-  margin: 10px 15px 10px 0;
+  margin: 1.5vh 9vw;
 }
 
 .currency-symbol {
@@ -50,14 +49,27 @@
   justify-content: center;
 }
 
-#coin-symbol {
-  display: flex;
-  justify-content: center;
+#coin-supply {
+  text-align: right;
+  margin-right: -10vw;
   /* border: 2px solid white; */
   /* margin-top: -5vh; */
+}
+
+#coin-symbol {
+  text-align: center;
+}
+
+#coin-price {
+  text-align: right;
+}
+
+#coin-name {
+  text-align: left;
 }
 
 .logo {
   height: 50px;
   width: 50px;
+  margin-left: 2vw;
 }
