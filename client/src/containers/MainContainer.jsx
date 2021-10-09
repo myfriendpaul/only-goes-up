@@ -61,7 +61,7 @@ export default function MainContainer(props) {
     if (search.length) {
       return currency.name.toUpperCase().includes(search.toUpperCase());
     }
-    return index < 200;
+    return index < 5;
   };
 
   const handleCurrencyDelete = async (id) => {
