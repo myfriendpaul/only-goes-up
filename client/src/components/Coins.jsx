@@ -21,7 +21,7 @@ export default function Coins(props) {
       <span>
         {props.coinData.map((andy) => {
           if (andy.currency === props.symbol) {
-            return <p id="coin-price">{andy.price}</p>;
+            return <p id="coin-price">{`$${Number(andy.price).toFixed(2)}`}</p>;
           }
         })}
       </span>

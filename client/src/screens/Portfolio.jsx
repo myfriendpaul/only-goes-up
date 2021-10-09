@@ -27,7 +27,7 @@ export default function Portfolio(props) {
   const getJimmyPrice = (symbol) => {
     return props.coinData.map((andy) => {
       if (andy.currency === symbol) {
-        return <h3>{andy.price}</h3>;
+        return <h3>{Number(andy.price).toFixed(2)}</h3>;
       }
     });
   };
