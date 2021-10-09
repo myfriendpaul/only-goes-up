@@ -1,5 +1,5 @@
 class CurrenciesController < AuthenticationController
-before_action :authorize_request, only: :add_currencies_to_users
+before_action :authorize_request, only: [:add_currencies_to_users, :user_index, :destroy]
 
   def currency
     @currency = Currency.find(params[:id])
@@ -11,6 +11,10 @@ before_action :authorize_request, only: :add_currencies_to_users
     render json: @currencies
   end
   
+  def user_index
+    render json: @current_user.currencies, include: :users_currencies
+  end
+
   #GET /currency/1
   def show
     @currency = Currency.find(params[:id])
@@ -29,9 +33,8 @@ before_action :authorize_request, only: :add_currencies_to_users
 
   #DELETE /currency/1
   def destroy
-      @currency = Currency.find(params[:id])
-      @currency.destroy
-      render json: @currency, status: :deleted
+      @current_user.currencies.delete(params[:id])
+      render json: @current_user.currencies
   end
 
   #Search for currencies
@@ -56,11 +59,18 @@ def add_currencies_to_users
   @currency = Currency.find(params[:id])
   if @current_user.currencies.include?(@currency)
     @portfolio = @current_user.users_currencies.find_by(currency_id:params[:id])
-  @portfolio.update(quantity: @portfolio.quantity + currency_params[:quantity])
+  @portfolio.update(quantity: @portfolio.quantity + currency_params[:quantity].to_i)
   else 
     @current_user.users_currencies.create(quantity: currency_params[:quantity], currency:@currency)
   end
   render json: @current_user.currencies, include: :users_currencies
+end
+
+def remove_currencies_from_users
+  @currency = Currency.find(params[:id])
+  if @current_user.currencies.include?(@currency)
+    @portfolio = @current_user.users_currencies.find_by(currency_id:params[:id])
+  end
 end
 
 

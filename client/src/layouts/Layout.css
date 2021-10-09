@@ -1,0 +1,43 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap");
+
+.logo-img {
+  height: 200px;
+  width: 200px;
+}
+
+.header-container {
+  display: block;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: #d04a5b;
+  font-family: Montserrat;
+  font-weight: 600;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  font-size: 1.5em;
+  transition: all 0.2s ease-in-out;
+}
+.nav-links:hover {
+  text-decoration: none;
+  cursor: pointer;
+  /* margin: 10px 15px 10px 0; */
+  /* transition: all 0.2s ease-in-out; */
+  transform: scale(1.5);
+}
+
+/* .nav-links:visited {
+  text-decoration: none;
+}
+.nav-links:focus {
+  text-decoration: none;
+}
+.nav-links:hover,
+.nav-links:active {
+  text-decoration: none;
+} */

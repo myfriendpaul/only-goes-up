@@ -1,0 +1,41 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;500;600;700&display=swap");
+
+.page-header {
+  font-family: Montserrat;
+  font-weight: 500;
+  font-size: 3em;
+}
+
+.form-group {
+  text-align: center;
+}
+
+.coin-links {
+  text-decoration: none;
+}
+
+.search-field {
+  width: 33%;
+  padding: 2vh;
+  border-radius: 5px;
+  border-color: transparent;
+  background-color: #263030;
+  caret-color: #db995d;
+  color: #d6dcce;
+  font-family: Montserrat;
+  margin-bottom: 2vh;
+}
+.search-field[type="text"] {
+  /* size: 2em; */
+  font-weight: 400;
+}
+
+textarea:focus,
+input:focus {
+  outline: none;
+  font-size: 1.5em;
+}
+input,
+input::-webkit-input-placeholder {
+  font-size: 1.5em;
+}

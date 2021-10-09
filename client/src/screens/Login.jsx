@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import "./Login.css";
 
 export default function Login(props) {
   const [formData, setFormData] = useState({
@@ -16,38 +17,45 @@ export default function Login(props) {
   };
 
   return (
-    <form
-      onSubmit={(e) => {
-        e.preventDefault();
-        props.handleLogin(formData);
-      }}
-    >
-      <h3>Login</h3>
-      <label>
-        Username:
-        <input
-          type="text"
-          name="username"
-          value={formData.username}
-          onChange={handleChange}
-        />
-      </label>
-      <br />
-      <label>
-        Password:
-        <input
-          type="password"
-          name="password"
-          value={formData.password}
-          onChange={handleChange}
-        />
-      </label>
-      <br />
-      <p>
-        Not a member?
-        <Link to="/register"> Join today!</Link>
-      </p>
-      <button>Submit</button>
-    </form>
+    <div className="sign-up">
+      <div className="img-container2">
+        <img className="background-img" src="https://imgur.com/2CShcc2.jpg" />
+      </div>
+      <form
+        onSubmit={(e) => {
+          e.preventDefault();
+          props.handleLogin(formData);
+        }}
+      >
+        <h3>Login</h3>
+        <label>
+          Username:
+          <input
+            type="text"
+            name="username"
+            value={formData.username}
+            onChange={handleChange}
+          />
+        </label>
+        <br />
+        <label>
+          Password:
+          <input
+            type="password"
+            name="password"
+            value={formData.password}
+            onChange={handleChange}
+          />
+        </label>
+        {/* <br /> */}
+        <div className="">
+          <p>
+            Not a member?
+            <Link to="/register"> Join today!</Link>
+          </p>
+          <button>Login</button>
+        </div>
+      </form>
+    </div>
   );
 }

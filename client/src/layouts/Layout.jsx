@@ -1,27 +1,66 @@
-import { Link, Switch } from "react-router-dom";
+import { Link } from "react-router-dom";
+import "./Layout.css";
+
+// const authenticatedOptions = (
+//   <>
+//     <div className="auth-menu">
+//       <Link className="nav-links" to="/search">
+//         Search
+//       </Link>
+//       <Link className="nav-links" to={`/users/${props.currentUser.id}`}>
+//         Portfolio
+//       </Link>
+//     </div>
+//   </>
+// );
+
+// const unauthenticatedOptions = (
+//   <>
+//     <div className="unauth-menu">
+//       <Link className="nav-links" to="/register">
+//         Register
+//       </Link>
+//       <br />
+//       <Nav.Link className="nav-links" to="/login">
+//         Sign In
+//       </Nav.Link>
+//     </div>
+//   </>
+// );
 
 export default function Layout(props) {
   return (
-    <div>
+    <div className="header-container">
       <header>
-        <h1>Only Goes Up</h1>
+        <img className="logo-img" src="https://imgur.com/VtA7sMg.png" />
         {props.currentUser ? (
           <div>
             <p>{props.currentUser.name}</p>
-            <button onClick={props.handleLogout}>Logout</button>
+            <Link className="nav-links" onClick={props.handleLogout}>
+              Logout
+            </Link>
           </div>
         ) : (
-          <div>
-            <Link to="/register">Register</Link>
-            <Link to="/login">Login</Link>
+          <div className="register-link">
+            <Link className="nav-links" to="/register">
+              Register
+            </Link>
+            <Link className="nav-links" to="/login">
+              Login
+            </Link>
           </div>
         )}
-        <Link to="/">Home</Link>
-        <hr />
+        <Link className="nav-links" to="/">
+          Home
+        </Link>
         {props.currentUser && (
           <div>
-            <Link to="/search">Search</Link>
-            <Link to="/portfolio">Portfolio</Link>
+            <Link className="nav-links" to="/search">
+              Search
+            </Link>
+            <Link className="nav-links" to={`/users/${props.currentUser.id}`}>
+              Portfolio
+            </Link>
           </div>
         )}
       </header>

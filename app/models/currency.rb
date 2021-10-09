@@ -14,3 +14,10 @@ class Currency < ApplicationRecord
     response = JSON.parse(request.body)[0]["price"]
   end
 end
+
+
+#make api in useEffect
+#setCoinData(?)
+# if currency_symbol === coinData.symbol
+# coinData.map(image)=>{ image.logo_url }
+#<img src={image.logo_url}/>

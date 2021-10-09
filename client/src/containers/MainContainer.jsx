@@ -1,60 +1,72 @@
 import { useState, useEffect } from "react";
-import { Route, Link, Switch } from "react-router-dom";
+import { Route, Switch, useHistory } from "react-router-dom";
 import Search from "../components/Search";
-import Coins from "../components/Coins";
-import CoinDetail from "../screens/CoinDetail";
-import { getAllCurrencies } from "../services/currencies";
+import Home from "../screens/Home";
+import {
+  getAllCurrencies,
+  getUserCurrencies,
+  addCurrencyToUser,
+  // getOneCurrency,
+  deleteCurrency,
+} from "../services/currencies";
 import axios from "axios";
-// import api from "../services/api";
 import Calculate from "../components/Calculate";
+import Portfolio from "../screens/Portfolio";
+const URL =
+  "https://api.nomics.com/v1/currencies/ticker?key=8d71abdf6b951f83daab569d5bf0f3fa7f0a9b78&per-page=3000";
 
-export default function MainContainer() {
+export default function MainContainer(props) {
   const [currencies, setCurrencies] = useState([]);
-  const [search, setSearch] = useState([]);
-  const [coin, setCoin] = useState(null);
-  const [amount, setAmount] = useState("");
+  const [search, setSearch] = useState("");
+  const [userCurrencies, setUserCurrencies] = useState([]);
+  const [coinData, setCoinData] = useState([]);
+  const history = useHistory();
 
-  // useEffect(() => {
-  //   const fetchCurrencies = async () => {
-  //     const currencyList = await getAllCurrencies();
-  //     setCurrencies(currencyList);
-  //     console.log(currencyList);
-  //   };
-  //   fetchCurrencies();
-  // }, []);
+  useEffect(() => {
+    const fetchCoinData = async () => {
+      const coinDataList = await axios.get(URL);
+      setCoinData(coinDataList.data);
+      console.log(coinDataList.data);
+    };
+    fetchCoinData();
+  }, []);
 
-  // const searchFilterFn = (currency, index) => {
-  //   if (search.length) {
-  //     return currency.name.toUpperCase().includes(search.toUpperCase());
-  //   }
-  //   return index < 10;
-  // };
+  useEffect(() => {
+    const fetchCurrencies = async () => {
+      const currencyList = await getAllCurrencies();
+      setCurrencies(currencyList);
+      console.log(currencyList);
+    };
+    fetchCurrencies();
+  }, []);
 
-  // const handleSelect = (e, currencyId) => {
-  //   e.preventDefault();
-  //   console.log(parseInt(currencies.id));
-  //   // console.log(currencies.id);
-  //   // console.log(search);
-  //   const coin = currencies.find((item) => item.id === currencyId);
+  useEffect(() => {
+    const fetchUserCurrencies = async () => {
+      const portfolioCurrencies = await getUserCurrencies();
+      setUserCurrencies([portfolioCurrencies]);
+    };
+    fetchUserCurrencies();
+  }, []);
 
-  //   setCoin(coin);
-  //   console.log(currencyId);
-  //   console.log(coin);
-  // };
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    let currency = coin;
-    let amount = amount;
-    axios.post("http://localhost:3000/calculate", {
-      id: currency.id,
-      amount: amount,
-    });
+  const handlePortfolioCreate = async (id, currencyData) => {
+    const portfolioData = await addCurrencyToUser(id, currencyData);
+    setUserCurrencies(portfolioData);
+    // history.push("/");
   };
 
-  const handleAmount = (e) => {
-    setAmount({
-      [e.target.name]: e.target.value,
-    });
+  const handleSearch = (e) => {
+    setSearch(e.target.value);
+  };
+  const searchFilterFn = (currency, index) => {
+    if (search.length) {
+      return currency.name.toUpperCase().includes(search.toUpperCase());
+    }
+    return index < 10;
+  };
+
+  const handleCurrencyDelete = async (id) => {
+    await deleteCurrency(id);
+    setCurrencies((prevState) => prevState.filter((coin) => coin.id !== id));
   };
 
   return (
@@ -62,48 +74,32 @@ export default function MainContainer() {
       <Switch>
         <Route path="/search">
           <Search
-            coin={coin}
+            coinData={coinData}
+            currencies={currencies}
             search={search}
             setSearch={setSearch}
-            // handleSelect={handleSelect}
-            // searchFilterFn={searchFilterFn}
+            handleSearch={handleSearch}
+            searchFilterFn={searchFilterFn}
           />
         </Route>
-        <Calculate
-          handleAmount={handleAmount}
-          handleSubmit={handleSubmit}
-          coin={coin}
-          amount={amount}
-        />
+        <Route path="/coindetail/:id">
+          {/* <CoinDetail /> */}
+          <Calculate
+            userCurrencies={userCurrencies}
+            handlePortfolioCreate={handlePortfolioCreate}
+          />
+        </Route>
+        <Route path="/users/:id">
+          <Portfolio
+            coinData={coinData}
+            currentUser={props.currentUser}
+            handleCurrencyDelete={handleCurrencyDelete}
+          />
+        </Route>
+        <Route path="/">
+          <Home />
+        </Route>
       </Switch>
     </div>
   );
-}
-
-{
-  /* <Route to="/coindetail">
-          <CoinDetail />
-        </Route> */
-}
-{
-  /* </Switch> */
-}
-{
-  /* <div className="currencies">
-        {currencies.filter(searchFilterFn).map((currency, index) => {
-          return (
-            <Link to="/coindetail">
-            <Coins
-              handleSelect={handleSelect}
-              id={currency.id}
-              name={currency.name}
-              symbol={currency.currency_symbol}
-              imgURL={currency.imgURL}
-              price={currency.price}
-              key={currency.id}
-            />
-            // </Link>
-          );
-        })}
-      </div> */
 }

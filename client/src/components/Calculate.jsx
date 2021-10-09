@@ -1,28 +1,42 @@
-import axios from "axios";
-// import api from "services/api";
 import { useState } from "react";
-
+import { useParams } from "react-router-dom";
 export default function Calculate(props) {
-  const handleAmout = () => {};
+  const params = useParams();
+  const [formData, setFormData] = useState({
+    quantity: "",
+  });
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    props.handlePortfolioCreate(params.id, formData);
+  };
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prevState) => ({
+      ...prevState,
+      [name]: value,
+    }));
+  };
 
   return (
     <div>
       <h1>How much {props.coin} do you own?</h1>
-      <form onSubmit={props.handleSubmit}>
+      <form onSubmit={handleSubmit}>
         <div className="form-group">
-          <label>Enter quantity owned</label>
+          <label>Add to portfolio</label>
           <input
-            onChange={props.handleAmount}
+            onChange={handleChange}
             autoComplete="off"
-            type="text"
-            name="name"
+            type="number"
+            name="quantity"
             placeholder="How much do you own?"
-            value={props.amount}
+            value={formData.quantity}
             className="search-field"
           ></input>
         </div>
         <div className="calculate-btn">
-          <button>Calculate</button>
+          <button>Submit</button>
         </div>
       </form>
     </div>
