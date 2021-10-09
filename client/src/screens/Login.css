@@ -14,13 +14,10 @@
 } */
 
 .background-img {
-  position: relative;
+  /* position: absolute; */
   max-width: 50vw;
-  height: auto;
+  max-height: auto;
   left: 0px;
   top: 0px;
   z-index: 10;
-  /* background-image: url(https://imgur.com/2CShcc2.jpg);
-  background-position: center center; */
-  /* z-index: -10; */
 }

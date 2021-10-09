@@ -1,7 +1,10 @@
 import { useState } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useHistory } from "react-router-dom";
+import Layout from "../layouts/Layout";
+
 export default function Calculate(props) {
   const params = useParams();
+  const history = useHistory();
   const [formData, setFormData] = useState({
     quantity: "",
   });
@@ -9,6 +12,7 @@ export default function Calculate(props) {
   const handleSubmit = (e) => {
     e.preventDefault();
     props.handlePortfolioCreate(params.id, formData);
+    history.push("/portfolio");
   };
 
   const handleChange = (e) => {
@@ -21,6 +25,10 @@ export default function Calculate(props) {
 
   return (
     <div>
+      <Layout
+        currentUser={props.currentUser}
+        handleLogout={props.handleLogout}
+      />
       <h1>How much {props.coin} do you own?</h1>
       <form onSubmit={handleSubmit}>
         <div className="form-group">

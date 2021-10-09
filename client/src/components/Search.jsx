@@ -1,10 +1,15 @@
 import Coins from "./Coins";
 import { Link } from "react-router-dom";
 import "./Search.css";
+import Layout from "../layouts/Layout";
 
 export default function Search(props) {
   return (
     <div className="input-container">
+      <Layout
+        currentUser={props.currentUser}
+        handleLogout={props.handleLogout}
+      />
       <div className="form-group">
         <label></label>
         <p className="page-header">Search Cryptocurrencies</p>
@@ -37,6 +42,8 @@ export default function Search(props) {
                   // imgURL={currency.imgURL}
                   // price={currency.price}
                   key={currency.id}
+                  handleLogout={props.handleLogout}
+                  currentUser={props.currentUser}
                 />
               </Link>
             );

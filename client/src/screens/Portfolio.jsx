@@ -3,6 +3,7 @@ import { useParams, Link, useHistory } from "react-router-dom";
 import { getOneUser, calculateCurrency } from "../services/currencies";
 import "./Portfolio.css";
 import { Icon } from "@iconify/react";
+import Layout from "../layouts/Layout";
 
 export default function Portfolio(props) {
   const [user, setUser] = useState(null);
@@ -35,7 +36,11 @@ export default function Portfolio(props) {
 
   return (
     <div>
-      <h1>{user?.username}</h1>
+      <Layout
+        currentUser={props.currentUser}
+        handleLogout={props.handleLogout}
+      />
+      <h1 className="portfolio-name">{user?.username}'s Moon Bucket</h1>
 
       {user?.users_currencies.map((coin) => {
         return (

@@ -74,12 +74,14 @@ export default function MainContainer(props) {
       <Switch>
         <Route path="/search">
           <Search
+            currentUser={props.currentUser}
             coinData={coinData}
             currencies={currencies}
             search={search}
             setSearch={setSearch}
             handleSearch={handleSearch}
             searchFilterFn={searchFilterFn}
+            handleLogout={props.handleLogout}
           />
         </Route>
         <Route path="/coindetail/:id">
@@ -89,15 +91,19 @@ export default function MainContainer(props) {
             handlePortfolioCreate={handlePortfolioCreate}
           />
         </Route>
-        <Route path="/users/:id">
+        <Route path="/portfolio">
           <Portfolio
             coinData={coinData}
             currentUser={props.currentUser}
             handleCurrencyDelete={handleCurrencyDelete}
+            handleLogout={props.handleLogout}
           />
         </Route>
         <Route path="/">
-          <Home />
+          <Home
+            handleLogout={props.handleLogout}
+            currentUser={props.currentUser}
+          />
         </Route>
       </Switch>
     </div>

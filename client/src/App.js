@@ -41,26 +41,30 @@ function App() {
     setCurrentUser(null);
     localStorage.removeItem("authToken");
     removeToken();
+    history.push("/");
   };
 
   return (
     <div className="App">
-      <Layout currentUser={currentUser} handleLogout={handleLogout}>
-        <Switch>
-          <Route path="/login">
-            <Login handleLogin={handleLogin} />
-          </Route>
-          <Route path="/register">
-            <Register handleRegister={handleRegister} />
-          </Route>
-          {/* <Route path="/search">
+      {/* <Layout currentUser={currentUser} handleLogout={handleLogout} /> */}
+      <Switch>
+        <Route path="/login">
+          <Login handleLogin={handleLogin} />
+        </Route>
+        <Route path="/register">
+          <Register handleRegister={handleRegister} />
+        </Route>
+        {/* <Route path="/search">
             <Search />
           </Route> */}
-          <Route path="/">
-            <MainContainer currentUser={currentUser} />
-          </Route>
-        </Switch>
-      </Layout>
+        <Route path="/">
+          <MainContainer
+            handleLogout={handleLogout}
+            currentUser={currentUser}
+          />
+        </Route>
+      </Switch>
+      {/* </Layout> */}
     </div>
   );
 }

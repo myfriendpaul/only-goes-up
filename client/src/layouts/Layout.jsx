@@ -36,7 +36,7 @@ export default function Layout(props) {
         {props.currentUser ? (
           <div>
             <p>{props.currentUser.name}</p>
-            <Link className="nav-links" onClick={props.handleLogout}>
+            <Link to="/" className="nav-links" onClick={props.handleLogout}>
               Logout
             </Link>
           </div>
@@ -58,7 +58,7 @@ export default function Layout(props) {
             <Link className="nav-links" to="/search">
               Search
             </Link>
-            <Link className="nav-links" to={`/users/${props.currentUser.id}`}>
+            <Link className="nav-links" to="/portfolio">
               Portfolio
             </Link>
           </div>
