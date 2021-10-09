@@ -9,14 +9,28 @@ import {
   // getOneCurrency,
   deleteCurrency,
 } from "../services/currencies";
+import axios from "axios";
 import Calculate from "../components/Calculate";
 import Portfolio from "../screens/Portfolio";
+const URL =
+  "https://api.nomics.com/v1/currencies/ticker?key=8d71abdf6b951f83daab569d5bf0f3fa7f0a9b78&per-page=17";
 
 export default function MainContainer(props) {
   const [currencies, setCurrencies] = useState([]);
   const [search, setSearch] = useState("");
   const [userCurrencies, setUserCurrencies] = useState([]);
+  const [coinData, setCoinData] = useState([]);
   const history = useHistory();
+
+  useEffect(() => {
+    const fetchCoinData = async () => {
+      const coinDataList = await axios.get(URL);
+      setCoinData(coinDataList.data);
+      console.log(coinDataList.data);
+    };
+    fetchCoinData();
+  }, []);
+
   useEffect(() => {
     const fetchCurrencies = async () => {
       const currencyList = await getAllCurrencies();
@@ -47,7 +61,7 @@ export default function MainContainer(props) {
     if (search.length) {
       return currency.name.toUpperCase().includes(search.toUpperCase());
     }
-    return index < 10;
+    return index < 200;
   };
 
   const handleCurrencyDelete = async (id) => {
@@ -60,6 +74,7 @@ export default function MainContainer(props) {
       {/* <Switch> */}
       <Route path="/search">
         <Search
+          coinData={coinData}
           currencies={currencies}
           search={search}
           setSearch={setSearch}
@@ -76,6 +91,7 @@ export default function MainContainer(props) {
       </Route>
       <Route path="/users/:id">
         <Portfolio
+          coinData={coinData}
           currentUser={props.currentUser}
           handleCurrencyDelete={handleCurrencyDelete}
         />

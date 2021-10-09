@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   end
   root 'currencies#index'
   post 'search', to: 'currencies#search'
-  post '/calculate', to: 'currencies#calculate'
+  post '/calculate/:id', to: 'currencies#calculate'
   put '/currencies/:id/add', to: 'currencies#add_currencies_to_users'
   get '/user-portfolio/:id', to: 'currencies#user_index'
 end

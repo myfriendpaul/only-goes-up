@@ -16,18 +16,37 @@ export default function Portfolio(props) {
     if (props.currentUser) fetchUser();
   }, [id, props.currentUser]);
 
+  const getJimmy = (symbol) => {
+    return props.coinData.map((andy) => {
+      if (andy.currency === symbol) {
+        return <img className="logo" src={andy.logo_url} />;
+        console.log(andy.currency);
+      }
+    });
+  };
+  const getJimmyPrice = (symbol) => {
+    return props.coinData.map((andy) => {
+      if (andy.currency === symbol) {
+        return <h3>{andy.price}</h3>;
+        console.log(andy.currency);
+      }
+    });
+  };
+
   return (
     <div>
       <h1>{user?.username}</h1>
       {user?.users_currencies.map((coin) => {
         return (
           <div className="coin-list">
+            <span>{getJimmy(coin.currency.currency_symbol)}</span>
             <span>
               <h3>{coin.currency.name}</h3>
             </span>
             <span>
               <h3>{coin.currency.currency_symbol}</h3>
             </span>
+            <span>{getJimmyPrice(coin.currency.currency_symbol)}</span>
             <span className="quantity">
               <h3>{coin.quantity}</h3>
               <Link to={`/coindetail/${coin.currency_id}`}>
@@ -45,8 +64,10 @@ export default function Portfolio(props) {
           </div>
         );
       })}
-      {/* <h1>{user?.users_currencies}</h1> */}
-      {/* <h1>{props.currentUser.users_currencies[0].currency}</h1> */}
     </div>
   );
 }
+
+// if (jimmy.currency === props.symbol) {
+//   return <img src={jimmy.logo_url} />;
+// }

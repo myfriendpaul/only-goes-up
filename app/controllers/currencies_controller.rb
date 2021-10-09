@@ -1,5 +1,5 @@
 class CurrenciesController < AuthenticationController
-before_action :authorize_request, only: [:add_currencies_to_users, :user_index]
+before_action :authorize_request, only: [:add_currencies_to_users, :user_index, :destroy]
 
   def currency
     @currency = Currency.find(params[:id])
@@ -33,9 +33,8 @@ before_action :authorize_request, only: [:add_currencies_to_users, :user_index]
 
   #DELETE /currency/1
   def destroy
-      @currency = Currency.find(params[:id])
-      @currency.destroy
-      render json: @currency, status: :deleted
+      @current_user.currencies.delete(params[:id])
+      render json: @current_user.currencies
   end
 
   #Search for currencies

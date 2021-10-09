@@ -2,17 +2,6 @@ import Coins from "./Coins";
 import { Link } from "react-router-dom";
 
 export default function Search(props) {
-  const handleSearch = (e) => {
-    props.setSearch(e.target.value);
-  };
-
-  const searchFilterFn = (currency, index) => {
-    if (props.search.length) {
-      return currency.name.toUpperCase().includes(props.search.toUpperCase());
-    }
-    return index < 10;
-  };
-
   return (
     <div>
       <h1>Search Cryptocurrencies</h1>
@@ -42,7 +31,7 @@ export default function Search(props) {
                   id={currency.id}
                   name={currency.name}
                   symbol={currency.currency_symbol}
-                  logo_url={currency.logo_url}
+                  coinData={props.coinData}
                   max_supply={currency.max_supply}
                   // imgURL={currency.imgURL}
                   // price={currency.price}
