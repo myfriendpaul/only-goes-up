@@ -1,12 +1,13 @@
 import Coins from "./Coins";
 import { Link } from "react-router-dom";
+import "./Search.css";
 
 export default function Search(props) {
   return (
-    <div>
-      <h1>Search Cryptocurrencies</h1>
+    <div className="input-container">
       <div className="form-group">
-        <label>Search for a currency:</label>
+        <label></label>
+        <p className="page-header">Search Cryptocurrencies</p>
         <input
           onChange={props.handleSearch}
           autoComplete="off"

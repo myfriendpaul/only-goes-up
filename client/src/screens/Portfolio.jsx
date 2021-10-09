@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { useParams, Link, useHistory } from "react-router-dom";
 import { getOneUser, calculateCurrency } from "../services/currencies";
 import "./Portfolio.css";
+import { Icon } from "@iconify/react";
 
 export default function Portfolio(props) {
   const [user, setUser] = useState(null);
@@ -27,7 +28,7 @@ export default function Portfolio(props) {
   const getJimmyPrice = (symbol) => {
     return props.coinData.map((andy) => {
       if (andy.currency === symbol) {
-        return <h3>{Number(andy.price).toFixed(2)}</h3>;
+        return <p>{`$${Number(andy.price).toFixed(2)}`}</p>;
       }
     });
   };
@@ -41,26 +42,36 @@ export default function Portfolio(props) {
           <div className="coin-list">
             <span>{getJimmy(coin.currency.currency_symbol)}</span>
             <span>
-              <h3>{coin.currency.name}</h3>
+              <p className="coin-name">{coin.currency.name}</p>
             </span>
             <span>
-              <h3>{coin.currency.currency_symbol}</h3>
+              <p>{coin.currency.currency_symbol}</p>
             </span>
             <span>{getJimmyPrice(coin.currency.currency_symbol)}</span>
             <span className="quantity">
-              <h3>{coin.quantity}</h3>
-              <Link to={`/coindetail/${coin.currency_id}`}>
-                <button className="edit-btn">Edit</button>
-              </Link>
+              <p>
+                QTY: {coin.quantity}{" "}
+                <Link to={`/coindetail/${coin.currency_id}`}>
+                  <Icon
+                    className="edit-btn"
+                    icon="clarity:edit-line"
+                    color="#8BCCD8"
+                  />
+                </Link>
+              </p>
             </span>
-            <button
+            {/* <span className="edit-btn">
+                <Icon icon="clarity:edit-line" color="#d04a5b" />
+              </span> */}
+            <a
+              href="#"
               className="delete-btn"
               onClick={() => {
                 props.handleCurrencyDelete(coin.currency_id);
               }}
             >
-              Delete
-            </button>
+              <Icon icon="teenyicons:x-circle-outline" color="#d04a5b" />
+            </a>
           </div>
         );
       })}

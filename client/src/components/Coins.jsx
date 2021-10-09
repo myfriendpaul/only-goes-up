@@ -13,7 +13,7 @@ export default function Coins(props) {
         })}
       </span>
       <span>
-        <p id="coin-name">{props.name}</p>
+        <p className="coin-name">{props.name}</p>
       </span>
       <span>
         <p id="coin-symbol">{props.symbol}</p>
@@ -21,15 +21,17 @@ export default function Coins(props) {
       <span>
         {props.coinData.map((andy) => {
           if (andy.currency === props.symbol) {
-            return <p id="coin-price">{`$${Number(andy.price).toFixed(2)}`}</p>;
+            return (
+              <p className="coin-price">{`$${Number(andy.price).toFixed(
+                2
+              )}`}</p>
+            );
           }
         })}
       </span>
       <span>
         <p id="coin-supply">{props.max_supply.toLocaleString()}</p>
       </span>
-      <span>{/* <h1>{props.currency.logo_url}</h1> */}</span>
-      {/* </div> */}
     </div>
   );
 }

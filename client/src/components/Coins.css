@@ -1,11 +1,11 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;500;600;700&display=swap");
 
-.currency-list {
+/* .currency-list {
   display: flex;
   align-items: center;
   justify-content: space-between;
   box-shadow: 20px 20px 14px rgba(38, 48, 48, 0.5);
-  padding: 20px;
+  padding: 20px 50px;
   border-radius: 8px;
   margin: 5px;
   border: 1px solid rgba(0, 0, 0, 0.25);
@@ -18,7 +18,7 @@
   text-decoration: none;
   color: #db995d;
   background-color: #263030;
-}
+} */
 
 .currency-list > span {
   flex: 1 0 0;
@@ -51,25 +51,24 @@
 
 #coin-supply {
   text-align: right;
-  margin-right: -10vw;
   /* border: 2px solid white; */
   /* margin-top: -5vh; */
 }
 
-#coin-symbol {
+/* #coin-symbol {
   text-align: center;
+} */
+
+.coin-price {
+  /* text-align: right; */
 }
 
-#coin-price {
-  text-align: right;
-}
-
-#coin-name {
+.coin-name {
   text-align: left;
+  margin-left: -5vw;
 }
 
 .logo {
   height: 50px;
   width: 50px;
-  margin-left: 2vw;
 }
