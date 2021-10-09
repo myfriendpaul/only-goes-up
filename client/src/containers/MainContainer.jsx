@@ -13,7 +13,7 @@ import axios from "axios";
 import Calculate from "../components/Calculate";
 import Portfolio from "../screens/Portfolio";
 const URL =
-  "https://api.nomics.com/v1/currencies/ticker?key=8d71abdf6b951f83daab569d5bf0f3fa7f0a9b78&per-page=17";
+  "https://api.nomics.com/v1/currencies/ticker?key=8d71abdf6b951f83daab569d5bf0f3fa7f0a9b78&per-page=3000";
 
 export default function MainContainer(props) {
   const [currencies, setCurrencies] = useState([]);
@@ -61,7 +61,7 @@ export default function MainContainer(props) {
     if (search.length) {
       return currency.name.toUpperCase().includes(search.toUpperCase());
     }
-    return index < 5;
+    return index < 10;
   };
 
   const handleCurrencyDelete = async (id) => {

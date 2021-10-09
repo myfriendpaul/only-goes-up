@@ -1,0 +1,22 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;500;600;700&display=swap");
+
+.register {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: Montserrat;
+  font-weight: 500;
+}
+
+/* .img-container {
+  display: flex;
+  justify-content: flex-end;
+} */
+.background-img2 {
+  position: relative;
+  max-width: 50vw;
+  height: auto;
+  left: 0px;
+  top: 0px;
+  z-index: 10;
+}
