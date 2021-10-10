@@ -28,6 +28,9 @@
   text-decoration: none;
   color: #db995d;
   background-color: #263030;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  hyphens: auto;
 }
 
 .coin-list > span {
@@ -73,10 +76,9 @@
   margin-right: 20px;
 }
 
-.coin-logo {
-  width: 50px;
-  height: 50px;
-}
+/* .coin-logo {
+  margin-top: 200px;
+} */
 
 @media screen and (max-width: 376px) {
   .coin-price {
