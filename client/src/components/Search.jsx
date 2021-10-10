@@ -19,9 +19,9 @@ export default function Search(props) {
           autoComplete="off"
           type="text"
           name="name"
-          placeholder="Ex: Bitcoin, Ethereum, Litecoin..."
+          placeholder="Searc"
           value={props.search}
-          className="search-field"
+          className="sign-in-input"
         ></input>
       </div>
 
