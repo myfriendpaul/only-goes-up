@@ -62,9 +62,16 @@
 @media screen and (max-width: 530px) {
   .logo-img {
     height: 100px;
-    width: 170px;
+    width: 175px;
   }
   /* .nav-links {
     font-size: 1.25em;
   } */
+}
+
+@media screen and (max-width: 375px) {
+  .logo-img {
+    height: 50px;
+    width: 125px;
+  }
 }
