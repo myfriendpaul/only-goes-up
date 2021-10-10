@@ -21,7 +21,7 @@ export default function Portfolio(props) {
   const getJimmy = (symbol) => {
     return props.coinData.map((andy) => {
       if (andy.currency === symbol) {
-        return <img className="logo" src={andy.logo_url} />;
+        return <img className="coin-logo1" src={andy.logo_url} />;
         console.log(andy.currency);
       }
     });
@@ -48,13 +48,9 @@ export default function Portfolio(props) {
         {user?.users_currencies.map((coin) => {
           return (
             <div className="coin-list">
-              <span className="coin-logo" height="50px">
-                {getJimmy(coin.currency.currency_symbol)}
-              </span>
+              <span>{getJimmy(coin.currency.currency_symbol)}</span>
               <span>
-                <p className="coin-name" height="50px">
-                  {coin.currency.name}
-                </p>
+                <p className="coin-name">{coin.currency.name}</p>
               </span>
               <span>
                 <p className="coin-symbol">{coin.currency.currency_symbol}</p>
