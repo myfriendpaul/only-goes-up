@@ -19,43 +19,49 @@ export default function Login(props) {
   return (
     <div className="sign-up">
       <div className="img-container2">
-        <img className="background-img" src="https://imgur.com/2CShcc2.jpg" />
+        {/* <img className="background-img" src="https://imgur.com/2CShcc2.jpg" /> */}
       </div>
-      <form
-        onSubmit={(e) => {
-          e.preventDefault();
-          props.handleLogin(formData);
-        }}
-      >
-        <h3>Login</h3>
-        <label>
-          Username:
+      <div className="form-container">
+        <form
+          onSubmit={(e) => {
+            e.preventDefault();
+            props.handleLogin(formData);
+          }}
+        >
+          <h3 className="form-name">Login</h3>
+          <label className="form-label">
+            Username:
+            <br />
+          </label>
           <input
             type="text"
             name="username"
             value={formData.username}
             onChange={handleChange}
+            className="sign-in-input"
           />
-        </label>
-        <br />
-        <label>
-          Password:
+          <br />
+          <label className="form-label">
+            Password:
+            <br />
+          </label>
           <input
             type="password"
             name="password"
             value={formData.password}
             onChange={handleChange}
+            className="sign-in-input"
           />
-        </label>
-        {/* <br /> */}
-        <div className="">
-          <p>
-            Not a member?
-            <Link to="/register"> Join today!</Link>
-          </p>
-          <button>Login</button>
-        </div>
-      </form>
+          {/* <br /> */}
+          <div className="">
+            <p>
+              Not a member?
+              <Link to="/register"> Join today!</Link>
+            </p>
+            <button>Login</button>
+          </div>
+        </form>
+      </div>
     </div>
   );
 }

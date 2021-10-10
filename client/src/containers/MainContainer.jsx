@@ -87,6 +87,7 @@ export default function MainContainer(props) {
         <Route path="/coindetail/:id">
           {/* <CoinDetail /> */}
           <Calculate
+            currencies={currencies}
             userCurrencies={userCurrencies}
             handlePortfolioCreate={handlePortfolioCreate}
           />

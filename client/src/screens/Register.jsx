@@ -24,41 +24,51 @@ export default function Register(props) {
           props.handleRegister(formData);
         }}
       >
-        <h3>Register</h3>
-        <label>
+        <h3 className="form-name1">Register</h3>
+        <label className="form-label1">
           Username:
-          <input
-            type="text"
-            name="username"
-            value={formData.username}
-            onChange={handleChange}
-          />
+          <br />
         </label>
+        <input
+          type="text"
+          name="username"
+          value={formData.username}
+          onChange={handleChange}
+          className="sign-in-input1"
+          // size="16"
+        />
         <br />
-        <label>
+        <label className="form-label1">
           Email:
-          <input
-            type="text"
-            name="email"
-            value={formData.email}
-            onChange={handleChange}
-          />
+          <br />
         </label>
+        <input
+          type="text"
+          name="email"
+          value={formData.email}
+          onChange={handleChange}
+          className="sign-in-input1"
+          // size="16"
+        />
         <br />
-        <label>
+        <label className="form-label1">
           Password:
-          <input
-            type="password"
-            name="password"
-            value={formData.password}
-            onChange={handleChange}
-          />
+          <br />
         </label>
+        <input
+          type="password"
+          name="password"
+          value={formData.password}
+          onChange={handleChange}
+          className="sign-in-input1"
+          // size="16"
+        />
+        <br />
         <br />
         <button>Submit</button>
       </form>
       <div className="img-container">
-        <img className="background-img2" src="https://imgur.com/e8gCTUT.jpg" />
+        {/* <img className="background-img2" src="https://imgur.com/e8gCTUT.jpg" /> */}
       </div>
     </div>
   );
