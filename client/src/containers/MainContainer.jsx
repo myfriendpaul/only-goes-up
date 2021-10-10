@@ -6,7 +6,6 @@ import {
   getAllCurrencies,
   getUserCurrencies,
   addCurrencyToUser,
-  // getOneCurrency,
   deleteCurrency,
 } from "../services/currencies";
 import axios from "axios";
@@ -21,12 +20,6 @@ export default function MainContainer(props) {
   const [userCurrencies, setUserCurrencies] = useState([]);
   const [coinData, setCoinData] = useState([]);
   const history = useHistory();
-  const [value, setValue] = useState();
-
-  const refresh = () => {
-    // re-renders the component
-    setValue({});
-  };
 
   useEffect(() => {
     const fetchCoinData = async () => {
@@ -73,7 +66,6 @@ export default function MainContainer(props) {
   const handleCurrencyDelete = async (id) => {
     await deleteCurrency(id);
     setCurrencies((prevState) => prevState.filter((coin) => coin.id !== id));
-    refresh();
   };
 
   return (

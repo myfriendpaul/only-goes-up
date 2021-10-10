@@ -2,7 +2,6 @@ import Coins from "./Coins";
 import { Link } from "react-router-dom";
 import "./Search.css";
 import Layout from "../layouts/Layout";
-import Calculate from "../components/Calculate";
 
 export default function Search(props) {
   return (
