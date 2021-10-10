@@ -6,7 +6,7 @@ export default function Layout(props) {
     <div className="header-container">
       <div>
         <Link to="/">
-          <img className="logo-img" src="https://imgur.com/ZIsfXPl.png" />
+          <img className="logo-img" src="https://imgur.com/WaRQcGv.png" />
         </Link>
       </div>
       <div className="nav-links-container">
