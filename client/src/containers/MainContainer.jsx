@@ -95,6 +95,7 @@ export default function MainContainer(props) {
           {/* <CoinDetail /> */}
           <Calculate
             currencies={currencies}
+            currentUser={props.currentUser}
             userCurrencies={userCurrencies}
             handlePortfolioCreate={handlePortfolioCreate}
           />

@@ -17,10 +17,6 @@ export default function Layout(props) {
             </Link>
           )}
         </div>
-        {/* <Link className="nav-links" to="/">
-          Home
-        </Link> */}
-        {/* {props.currentUser && ( */}
         <div>
           {props.currentUser && (
             <Link className="nav-links" to="/search">
@@ -43,7 +39,6 @@ export default function Layout(props) {
           )}
         </div>
       </div>
-      {/* )} */}
       {props.children}
     </div>
   );
