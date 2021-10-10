@@ -22,7 +22,6 @@ export default function Portfolio(props) {
     return props.coinData.map((andy) => {
       if (andy.currency === symbol) {
         return <img className="coin-logo1" src={andy.logo_url} />;
-        console.log(andy.currency);
       }
     });
   };
