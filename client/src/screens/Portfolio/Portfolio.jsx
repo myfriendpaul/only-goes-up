@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { useParams, Link, useHistory } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import { getOneUser } from "../../services/currencies";
 import "./Portfolio.css";
 import { Icon } from "@iconify/react";
@@ -20,7 +20,9 @@ export default function Portfolio(props) {
   const getCoinSymbol = (symbol) => {
     return props.coinData.map((andy) => {
       if (andy.currency === symbol) {
-        return <img className="coin-logo1" src={andy.logo_url} />;
+        return (
+          <img alt="Coin Logo" className="coin-logo1" src={andy.logo_url} />
+        );
       }
     });
   };
