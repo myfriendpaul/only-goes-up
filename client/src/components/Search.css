@@ -3,7 +3,7 @@
 .page-header {
   font-family: Montserrat;
   font-weight: 500;
-  font-size: 3em;
+  font-size: 2em;
 }
 
 .form-group {
@@ -15,8 +15,8 @@
 }
 
 .search-field {
-  width: 33%;
-  padding: 2vh;
+  width: 30vw;
+  padding: 1.25vh;
   border-radius: 5px;
   border-color: transparent;
   background-color: #263030;
@@ -26,8 +26,12 @@
   margin-bottom: 2vh;
 }
 .search-field[type="text"] {
-  /* size: 2em; */
+  font-size: 1em;
   font-weight: 400;
+}
+
+.search-field::placeholder {
+  font-size: 1em;
 }
 
 textarea:focus,

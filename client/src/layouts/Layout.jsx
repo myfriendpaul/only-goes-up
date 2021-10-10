@@ -4,11 +4,12 @@ import "./Layout.css";
 export default function Layout(props) {
   return (
     <div className="header-container">
-      <header>
+      <div>
         <Link to="/">
           <img className="logo-img" src="https://imgur.com/ZIsfXPl.png" />
         </Link>
-
+      </div>
+      <div>
         <div>
           {!props.currentUser && (
             <Link className="nav-links" to="/login">
@@ -41,8 +42,8 @@ export default function Layout(props) {
             </Link>
           )}
         </div>
-        {/* )} */}
-      </header>
+      </div>
+      {/* )} */}
       {props.children}
     </div>
   );

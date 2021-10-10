@@ -15,7 +15,7 @@ export default function Coins(props) {
         <p className="coin-name">{props.name}</p>
       </span>
       <span>
-        <p id="coin-symbol">{props.symbol}</p>
+        <p className="coin-symbol">{props.symbol}</p>
       </span>
       <span>
         {props.coinData.map((andy) => {
@@ -29,7 +29,7 @@ export default function Coins(props) {
         })}
       </span>
       <span>
-        <p id="coin-supply">{props.max_supply.toLocaleString()}</p>
+        <p className="coin-supply">{props.max_supply.toLocaleString()}</p>
       </span>
     </div>
   );

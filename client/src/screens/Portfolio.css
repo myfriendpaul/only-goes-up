@@ -80,7 +80,8 @@
   .coin-name,
   .coin-symbol,
   .coin-price,
-  .coin-quantity {
+  .coin-quantity,
+  .coin-supply {
     font-size: 10px;
   }
   .logo1 {
@@ -88,11 +89,6 @@
     height: 10px;
     margin-bottom: 15px;
   }
-  /* .coin-list {
-    padding: 10px 25px;
-    font-size: 200px;
-    font-weight: 500;
-  } */
   .edit-btn {
     margin-bottom: 0;
     width: 10px;
@@ -103,6 +99,11 @@
     /* padding: 25px; */
     width: 5px;
     height: 5px;
+  }
+  .logo-img {
+    height: 75px;
+    width: 120px;
+    padding-left: 1vw;
   }
 }
 

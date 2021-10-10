@@ -19,9 +19,9 @@ export default function Search(props) {
           autoComplete="off"
           type="text"
           name="name"
-          placeholder="Searc"
+          placeholder="Search"
           value={props.search}
-          className="sign-in-input"
+          className="search-field"
         ></input>
       </div>
 
