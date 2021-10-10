@@ -1333,4 +1333,4 @@ currencies = Currency.create([
   
 @paulcoin = Currency.create!(name: 'PaulCoin', max_supply: 1, currency_symbol: 'PUG', slug: 'paulcoin')
 
-@adminportfolio = UsersCurrency.create!(user: @admin, currency: @paulcoin,  quantity: 15)
+# @adminportfolio = UsersCurrency.create!(user: @admin, currency: @paulcoin,  quantity: 15)
