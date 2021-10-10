@@ -1,7 +1,6 @@
 import "./Coins.css";
 
 export default function Coins(props) {
-  const getJimmyImg = () => {};
   return (
     // <div className="currency-list">
     <div className="coin-list">

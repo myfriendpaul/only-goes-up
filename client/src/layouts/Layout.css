@@ -5,11 +5,10 @@
   width: 200px;
 }
 
-.header-container {
-  display: block;
-  flex-direction: column;
+.header {
+  display: flex;
   justify-content: space-between;
-  width: 100%;
+  align-items: center;
 }
 
 .nav-links {

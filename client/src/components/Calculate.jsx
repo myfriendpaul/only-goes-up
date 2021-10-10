@@ -1,14 +1,44 @@
-import { useState } from "react";
-import { useParams } from "react-router-dom";
+import { useState, useEffect } from "react";
+import { useParams, useHistory } from "react-router-dom";
+import Layout from "../layouts/Layout";
+import { getOneUser } from "../services/currencies";
+import "./Calculate.css";
+
 export default function Calculate(props) {
   const params = useParams();
+  const history = useHistory();
+  const [userData, setUserData] = useState(null);
   const [formData, setFormData] = useState({
     quantity: "",
+    name: "",
   });
+  const [count, setCount] = useState(0);
+  const [isVisible, setIsVisible] = useState(true);
+
+  const decrementCount = () => {
+    if (count > 0) setCount(count - 1);
+  };
+
+  const incrementCount = () => {
+    setCount(count + 1);
+  };
+
+  const toggleVisibility = () => {
+    setIsVisible(!isVisible);
+  };
+
+  useEffect(() => {
+    const fetchUserData = async () => {
+      const userInfo = await getOneUser(formData.id);
+      setUserData(userInfo);
+    };
+    fetchUserData();
+  }, [params.id]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
     props.handlePortfolioCreate(params.id, formData);
+    history.push("/portfolio");
   };
 
   const handleChange = (e) => {
@@ -21,24 +51,34 @@ export default function Calculate(props) {
 
   return (
     <div>
-      <h1>How much {props.coin} do you own?</h1>
-      <form onSubmit={handleSubmit}>
-        <div className="form-group">
-          <label>Add to portfolio</label>
-          <input
-            onChange={handleChange}
-            autoComplete="off"
-            type="number"
-            name="quantity"
-            placeholder="How much do you own?"
-            value={formData.quantity}
-            className="search-field"
-          ></input>
+      <Layout
+        currentUser={props.currentUser}
+        handleLogout={props.handleLogout}
+      />
+      <div className="form-container">
+        <div className="coin-title">
+          <h1>How much {props.currencies[params.id - 1].name} do you own?</h1>
         </div>
-        <div className="calculate-btn">
-          <button>Submit</button>
-        </div>
-      </form>
+        <form onSubmit={handleSubmit}>
+          <div className="form-group">
+            <label className="form-label">Add amouont to portfolio</label>
+            <br />
+            <input
+              onChange={handleChange}
+              autoComplete="off"
+              type="number"
+              name="quantity"
+              // placeholder="Quantity"
+              value={formData.quantity}
+              className="sign-in-input2"
+            ></input>
+          </div>
+          <div className="calculate-btn">
+            <br />
+            <button>Submit</button>
+          </div>
+        </form>
+      </div>
     </div>
   );
 }
