@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { Switch, Route, useHistory } from "react-router-dom";
 import "./App.css";
 import Login from "./screens/Login/Login";
-import Register from "./screens/Register";
+import Register from "./screens/Register/Register";
 import MainContainer from "./containers/MainContainer";
 import {
   loginUser,

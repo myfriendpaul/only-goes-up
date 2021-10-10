@@ -10,7 +10,7 @@ import {
 } from "../services/currencies";
 import axios from "axios";
 import Calculate from "../screens/Calculate/Calculate";
-import Portfolio from "../screens/Portfolio";
+import Portfolio from "../screens/Portfolio/Portfolio";
 const URL =
   "https://api.nomics.com/v1/currencies/ticker?key=8d71abdf6b951f83daab569d5bf0f3fa7f0a9b78&per-page=3000";
 

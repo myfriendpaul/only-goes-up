@@ -1,9 +1,9 @@
 import { useState, useEffect } from "react";
 import { useParams, Link, useHistory } from "react-router-dom";
-import { getOneUser } from "../services/currencies";
+import { getOneUser } from "../../services/currencies";
 import "./Portfolio.css";
 import { Icon } from "@iconify/react";
-import Layout from "../layouts/Layout";
+import Layout from "../../layouts/Layout";
 
 export default function Portfolio(props) {
   const [user, setUser] = useState(null);
