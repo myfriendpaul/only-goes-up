@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { useParams, useHistory } from "react-router-dom";
 import Layout from "../layouts/Layout";
 import { getOneUser } from "../services/currencies";
+import "./Calculate.css";
 
 export default function Calculate(props) {
   const params = useParams();
@@ -11,6 +12,21 @@ export default function Calculate(props) {
     quantity: "",
     name: "",
   });
+  const [count, setCount] = useState(0);
+  const [isVisible, setIsVisible] = useState(true);
+
+  const decrementCount = () => {
+    if (count > 0) setCount(count - 1);
+  };
+
+  const incrementCount = () => {
+    setCount(count + 1);
+  };
+
+  const toggleVisibility = () => {
+    setIsVisible(!isVisible);
+  };
+
   useEffect(() => {
     const fetchUserData = async () => {
       const userInfo = await getOneUser(formData.id);
@@ -39,22 +55,26 @@ export default function Calculate(props) {
         currentUser={props.currentUser}
         handleLogout={props.handleLogout}
       />
-      <div>
-        <h1>How much {props.currencies[params.id - 1].name} do you own?</h1>
+      <div className="form-container">
+        <div className="coin-title">
+          <h1>How much {props.currencies[params.id - 1].name} do you own?</h1>
+        </div>
         <form onSubmit={handleSubmit}>
           <div className="form-group">
-            <label>Add to portfolio</label>
+            <label className="form-label">Add amouont to portfolio</label>
+            <br />
             <input
               onChange={handleChange}
               autoComplete="off"
               type="number"
               name="quantity"
-              placeholder="How much do you own?"
+              // placeholder="Quantity"
               value={formData.quantity}
-              className="search-field"
+              className="sign-in-input2"
             ></input>
           </div>
           <div className="calculate-btn">
+            <br />
             <button>Submit</button>
           </div>
         </form>
