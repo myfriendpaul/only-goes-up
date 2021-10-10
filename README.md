@@ -21,7 +21,7 @@
 
 **Only Goes Up** 
 
-_Only Goes Up is a cryptocurrency portfolio application that allows users to view how the crypto market is doing with real time updated pricing. Anyone with an account can create their portfolio, track coins by adding to their portfolio, and customize their list by adding or editing any crypto coins they may have with a quantity of each. Ready to start investing? Great! It Only Goes up from here!_
+_[Only Goes Up](https://onlygoesup.netlify.app/login) is a cryptocurrency portfolio application that allows users to view how the crypto market is doing with real time updated pricing. Anyone with an account can create their portfolio, track coins by adding to their portfolio, and customize their list by adding or editing any crypto coins they may have with a quantity of each. Ready to start investing? Great! It Only Goes up from here!_
 
 <br>
 
