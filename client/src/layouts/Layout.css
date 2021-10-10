@@ -26,7 +26,7 @@
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
   font-size: 1.5em;
   transition: all 0.2s ease-in-out;
-  padding-right: 1vw;
+  padding: 0 1vw;
 }
 .nav-links:hover {
   text-decoration: none;
@@ -49,7 +49,22 @@
   text-decoration: none;
 } */
 
-@media screen and (max-width: 775px) {
+@media screen and (max-width: 375px) {
+  .nav-links {
+    font-size: 1em;
+    /* padding-right: 1.5vw; */
+  }
   .nav-links-container {
+    padding-right: 1.5vw;
+  }
+}
+
+@media screen and (max-width: 530px) {
+  .logo-img {
+    height: 100px;
+    width: 170px;
+  }
+  .nav-links {
+    font-size: 1.25em;
   }
 }
