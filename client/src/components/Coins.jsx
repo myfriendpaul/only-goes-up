@@ -2,7 +2,6 @@ import "./Coins.css";
 
 export default function Coins(props) {
   return (
-    // <div className="currency-list">
     <div className="coin-list">
       <span>
         {props.coinData.map((coin) => {
@@ -10,7 +9,11 @@ export default function Coins(props) {
             return (
               <span>
                 {" "}
-                <img className="coin-logo1" src={coin.logo_url} />
+                <img
+                  className="coin-logo1"
+                  alt="Coin Logo"
+                  src={coin.logo_url}
+                />
               </span>
             );
           }
