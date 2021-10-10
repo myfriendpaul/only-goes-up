@@ -68,16 +68,16 @@
   margin-left: -5vw;
 }
 
-.logo {
+.coin-logo {
   height: 50px;
   width: 50px;
 }
 
 @media screen and (max-width: 375px) {
-  .logo {
-    height: 400px;
+  /* .logo {
+    height: 40px;
     width: 15px;
-  }
+  } */
   .coin-name {
     margin: 0;
   }

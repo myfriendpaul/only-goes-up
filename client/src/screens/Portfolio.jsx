@@ -48,7 +48,7 @@ export default function Portfolio(props) {
         {user?.users_currencies.map((coin) => {
           return (
             <div className="coin-list">
-              <span className="logo1">
+              <span className="coin-logo">
                 {getJimmy(coin.currency.currency_symbol)}
               </span>
               <span>

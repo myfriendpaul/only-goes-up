@@ -73,6 +73,11 @@
   margin-right: 20px;
 }
 
+/* .coin-logo {
+  width: 50px;
+  height: 20px;
+} */
+
 @media screen and (max-width: 376px) {
   .coin-price {
     margin-right: 5px;
@@ -84,10 +89,10 @@
   .coin-supply {
     font-size: 10px;
   }
-  .logo1 {
+  .coin-logo {
     width: 10px;
     height: 10px;
-    margin-bottom: 15px;
+    /* margin-bottom: -3px; */
   }
   .edit-btn {
     margin-bottom: 0;
