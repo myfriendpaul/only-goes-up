@@ -12,20 +12,6 @@ export default function Calculate(props) {
     quantity: "",
     name: "",
   });
-  const [count, setCount] = useState(0);
-  const [isVisible, setIsVisible] = useState(true);
-
-  const decrementCount = () => {
-    if (count > 0) setCount(count - 1);
-  };
-
-  const incrementCount = () => {
-    setCount(count + 1);
-  };
-
-  const toggleVisibility = () => {
-    setIsVisible(!isVisible);
-  };
 
   useEffect(() => {
     const fetchUserData = async () => {
@@ -55,29 +41,31 @@ export default function Calculate(props) {
         currentUser={props.currentUser}
         handleLogout={props.handleLogout}
       />
-      <div className="form-container">
-        <div className="coin-title">
-          <h1>How much {props.currencies[params.id - 1].name} do you own?</h1>
+      <div className="form-container2">
+        <div className="form-container">
+          <div className="coin-title">
+            <h1>How much {props.currencies[params.id - 1].name} do you own?</h1>
+          </div>
+          <form onSubmit={handleSubmit}>
+            <div className="form-group">
+              <label className="form-label">Add amouont to portfolio</label>
+              <br />
+              <input
+                onChange={handleChange}
+                autoComplete="off"
+                type="number"
+                name="quantity"
+                // placeholder="Quantity"
+                value={formData.quantity}
+                className="sign-in-input2"
+              ></input>
+            </div>
+            <div className="calculate-btn">
+              <br />
+              <button>Submit</button>
+            </div>
+          </form>
         </div>
-        <form onSubmit={handleSubmit}>
-          <div className="form-group">
-            <label className="form-label">Add amouont to portfolio</label>
-            <br />
-            <input
-              onChange={handleChange}
-              autoComplete="off"
-              type="number"
-              name="quantity"
-              // placeholder="Quantity"
-              value={formData.quantity}
-              className="sign-in-input2"
-            ></input>
-          </div>
-          <div className="calculate-btn">
-            <br />
-            <button>Submit</button>
-          </div>
-        </form>
       </div>
     </div>
   );
