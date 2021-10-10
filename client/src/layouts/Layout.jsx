@@ -9,7 +9,7 @@ export default function Layout(props) {
           <img className="logo-img" src="https://imgur.com/ZIsfXPl.png" />
         </Link>
       </div>
-      <div>
+      <div className="nav-links-container">
         <div>
           {!props.currentUser && (
             <Link className="nav-links" to="/login">
