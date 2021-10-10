@@ -7,7 +7,7 @@ export default function Coins(props) {
       <span>
         {props.coinData.map((coin) => {
           if (coin.name === props.name) {
-            return <img className="coin-logo" src={coin.logo_url} />;
+            return <img className="coin-logo1" src={coin.logo_url} />;
           }
         })}
       </span>

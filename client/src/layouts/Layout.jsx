@@ -17,9 +17,9 @@ export default function Layout(props) {
             </Link>
           )}
         </div>
-        <Link className="nav-links" to="/">
+        {/* <Link className="nav-links" to="/">
           Home
-        </Link>
+        </Link> */}
         {/* {props.currentUser && ( */}
         <div>
           {props.currentUser && (
