@@ -51,8 +51,28 @@
   .img-container {
     background-image: none;
   }
+  .register-form {
+    margin-left: -11vw;
+    text-align: center;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .img-container {
+    background-image: none;
+  }
   .register {
-    margin-left: 15vw;
+    margin-left: 33vw;
+    text-align: center;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .img-container {
+    background-image: none;
+  }
+  .register {
+    margin-left: 27vw;
     text-align: center;
   }
 }
