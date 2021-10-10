@@ -1,5 +1,5 @@
 import "./Home.css";
-import Layout from "../layouts/Layout";
+import Layout from "../../layouts/Layout";
 export default function Home(props) {
   return (
     <div>

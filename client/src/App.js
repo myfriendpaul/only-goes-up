@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { Switch, Route, useHistory } from "react-router-dom";
 import "./App.css";
-import Login from "./screens/Login";
+import Login from "./screens/Login/Login";
 import Register from "./screens/Register";
 import MainContainer from "./containers/MainContainer";
 import {

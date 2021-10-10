@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { useParams, useHistory } from "react-router-dom";
-import Layout from "../layouts/Layout";
-import { getOneUser } from "../services/currencies";
+import Layout from "../../layouts/Layout";
+import { getOneUser } from "../../services/currencies";
 import "./Calculate.css";
 
 export default function Calculate(props) {
