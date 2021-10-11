@@ -75,3 +75,17 @@
     width: 125px;
   }
 }
+
+@media screen and (max-width: 428px) {
+  .nav-links {
+    font-size: 1.2em;
+  }
+  .nav-links-container {
+    padding-right: 1.5vw;
+  }
+  .logo-img {
+    height: 85px;
+    width: 125px;
+    margin-top: 1vh;
+  }
+}
