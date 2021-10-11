@@ -42,7 +42,7 @@ export default function Calculate(props) {
         handleLogout={props.handleLogout}
       />
       <div className="form-container2">
-        <div className="form-container">
+        <div className="form-container1">
           <div className="coin-title">
             <h1>How much {props.currencies[params.id - 1].name} do you own?</h1>
           </div>
