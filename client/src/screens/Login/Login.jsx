@@ -18,9 +18,7 @@ export default function Login(props) {
 
   return (
     <div className="sign-up">
-      <div className="img-container2">
-        {/* <img className="background-img" src="https://imgur.com/2CShcc2.jpg" /> */}
-      </div>
+      <div className="img-container2"></div>
       <div className="form-container">
         <form
           onSubmit={(e) => {

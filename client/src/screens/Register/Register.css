@@ -12,6 +12,8 @@
   font-family: Montserrat;
   font-weight: 500;
   height: 100vh;
+  width: 100vw;
+  text-align: center;
   /* margin-left: 10vw; */
 }
 
@@ -47,27 +49,34 @@
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.25);
 }
 
-@media screen and (max-width: 375px) {
+.flex-test {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+/* @media screen and (max-width: 375px) {
   .img-container {
     background-image: none;
   }
   .register-form {
-    /* margin-left: -11vw; */
+    margin-left: -11vw;
     text-align: center;
   }
-}
+} */
 
 @media screen and (max-width: 768px) {
   .img-container {
     background-image: none;
   }
   .register {
-    margin-left: 33vw;
+    /* margin-left: 33vw; */
     text-align: center;
   }
 }
 
-@media screen and (max-width: 600px) {
+/* @media screen and (max-width: 600px) {
   .img-container {
     background-image: none;
   }
@@ -75,4 +84,4 @@
     margin-left: 27vw;
     text-align: center;
   }
-}
+} */
