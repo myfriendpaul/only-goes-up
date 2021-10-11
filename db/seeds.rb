@@ -6,7 +6,7 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-@admin = User.create!(username: 'Chickadee', email: 'paul@email.com', password: '12345678')
+# @admin = User.create!(username: 'Chickadee', email: 'paul@email.com', password: '12345678')
 
 
 currencies = Currency.create([
@@ -1333,4 +1333,4 @@ currencies = Currency.create([
   
 @paulcoin = Currency.create!(name: 'PaulCoin', max_supply: 1, currency_symbol: 'PUG', slug: 'paulcoin')
 
-@adminportfolio = UsersCurrency.create!(user: @admin, currency: @paulcoin,  quantity: 15)
+# @adminportfolio = UsersCurrency.create!(user: @admin, currency: @paulcoin,  quantity: 15)

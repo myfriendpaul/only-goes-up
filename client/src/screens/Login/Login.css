@@ -2,7 +2,7 @@
 
 .form-name1 {
   text-align: center;
-  font-size: 1.5em;
+  font-size: 2em;
 }
 .sign-up {
   display: flex;
@@ -50,6 +50,10 @@
   letter-spacing: 0.055em;
   color: #d04a5b;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.25);
+}
+
+.form-container {
+  display: flex;
 }
 
 button,
@@ -144,5 +148,29 @@ button:hover::after {
   100% {
     clip-path: var(--slice-1);
     transform: translate(0);
+  }
+}
+
+@media screen and (max-width: 375px) {
+  .img-container2 {
+    background-image: none;
+  }
+  .sign-up {
+    margin-right: -7vw;
+    text-align: center;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .img-container2 {
+    background-image: none;
+  }
+  .sign-up {
+    /* padding-right: 21%; */
+    text-align: center;
+  }
+}
+@media screen and (max-width: 375) {
+  .form-container {
   }
 }

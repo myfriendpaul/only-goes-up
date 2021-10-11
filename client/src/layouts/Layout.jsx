@@ -1,69 +1,48 @@
 import { Link } from "react-router-dom";
 import "./Layout.css";
 
-// const authenticatedOptions = (
-//   <>
-//     <div className="auth-menu">
-//       <Link className="nav-links" to="/search">
-//         Search
-//       </Link>
-//       <Link className="nav-links" to={`/users/${props.currentUser.id}`}>
-//         Portfolio
-//       </Link>
-//     </div>
-//   </>
-// );
-
-// const unauthenticatedOptions = (
-//   <>
-//     <div className="unauth-menu">
-//       <Link className="nav-links" to="/register">
-//         Register
-//       </Link>
-//       <br />
-//       <Nav.Link className="nav-links" to="/login">
-//         Sign In
-//       </Nav.Link>
-//     </div>
-//   </>
-// );
-
 export default function Layout(props) {
   return (
     <div className="header-container">
-      <header>
-        <img className="logo-img" src="https://imgur.com/VtA7sMg.png" />
-        {props.currentUser ? (
-          <div>
-            <p>{props.currentUser.name}</p>
-            <Link to="/" className="nav-links" onClick={props.handleLogout}>
-              Logout
-            </Link>
-          </div>
-        ) : (
-          <div className="register-link">
-            <Link className="nav-links" to="/register">
-              Register
-            </Link>
+      <div>
+        <Link to="/">
+          <img
+            className="logo-img"
+            alt="It Only Goes Up logo"
+            src="https://imgur.com/WaRQcGv.png"
+          />
+        </Link>
+      </div>
+      <div className="nav-links-container">
+        <div>
+          {!props.currentUser && (
             <Link className="nav-links" to="/login">
               Login
             </Link>
-          </div>
-        )}
-        <Link className="nav-links" to="/">
-          Home
-        </Link>
-        {props.currentUser && (
-          <div>
+          )}
+        </div>
+        <div>
+          {props.currentUser && (
             <Link className="nav-links" to="/search">
               Search
             </Link>
+          )}
+        </div>
+        <div>
+          {props.currentUser && (
             <Link className="nav-links" to="/portfolio">
               Portfolio
             </Link>
-          </div>
-        )}
-      </header>
+          )}
+        </div>
+        <div>
+          {props.currentUser && (
+            <Link to="/" className="nav-links" onClick={props.handleLogout}>
+              Logout
+            </Link>
+          )}
+        </div>
+      </div>
       {props.children}
     </div>
   );
