@@ -166,7 +166,11 @@ button:hover::after {
     background-image: none;
   }
   .sign-up {
-    padding-right: 21%;
+    /* padding-right: 21%; */
     text-align: center;
+  }
+}
+@media screen and (max-width: 375) {
+  .form-container {
   }
 }
