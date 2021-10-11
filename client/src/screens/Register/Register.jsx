@@ -1,5 +1,6 @@
 import { useState } from "react";
 import "./Register.css";
+import { Link } from "react-router-dom";
 
 export default function Register(props) {
   const [formData, setFormData] = useState({
@@ -66,6 +67,10 @@ export default function Register(props) {
             // size="16"
           />
           <br />
+          <p>
+            Already a member?
+            <Link to="/login">Login!</Link>
+          </p>
           <br />
           <button>Submit</button>
         </form>
